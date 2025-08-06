@@ -27,15 +27,15 @@ export default function VictoryScreen() {
   };
 
   return (
-    <div className="container mx-auto p-4 max-w-md">
-      <h2 className="text-2xl font-bold mb-4 text-center">Match Results</h2>
-      <p className="text-center mb-4">
+    <div className="min-h-screen mx-auto bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
+      <h2 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent leading-24 text-center">Match Results</h2>
+      <p className="text-center mb-4 text-white text-lg">
         Final Scores: {players.player1}: {scores.player1} | {players.player2}: {scores.player2}
       </p>
-      <p className="text-center text-xl font-bold mb-4">
+      <p className="text-center text-xl font-bold mb-4 text-white">
         Round Wins: {players.player1}: {roundWins.player1} | {players.player2}: {roundWins.player2}
       </p>
-      <p className="text-center text-xl font-bold mb-4">
+      <p className="text-center text-xl font-bold mb-4 text-white">
         {finalWinner === 'Draw' ? 'It\'s a Draw!' : `Final Winner: ${finalWinner}`}
       </p>
       <div className="flex space-x-4 justify-center">

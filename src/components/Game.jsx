@@ -32,7 +32,6 @@ export default function Game() {
     }
   }, [winner, roundWins, round, router, dispatch]);
 
-  // Dispatch leaderboard update when a round ends (winner or draw)
   useEffect(() => {
     if (winner) {
       const p1Name = players.player1 || 'Player 1';
@@ -84,25 +83,9 @@ export default function Game() {
           ))
         )}
       </div>
-
-      <div className="flex justify-center mt-4 space-x-4">
-        <button
-          onClick={() => {
-            try {
-              dispatch(resetBoardOnly());
-            } catch (error) {
-              console.error("Error resetting the board:", error);
-            }
-          }}
-          className="bg-gradient-to-br px-4 py-2 rounded text-white from-yellow-400/80 to-orange-400/80 animate-pulse-winner border-yellow-400/50"
-        >
-          Reset Round
-        </button>
-      </div>
-
       {winner && (
         <div className="text-center mt-6">
-          <p className="text-xl font-bold">
+          <p className="text-xl font-bold text-white">
             {winner === 'Draw' ? "It's a Draw!" : `Round Winner: ${winner}`}
           </p>
           <button
@@ -119,6 +102,20 @@ export default function Game() {
           </button>
         </div>
       )}
+       <div className="flex justify-center mt-4 space-x-4">
+        <button
+          onClick={() => {
+            try {
+              dispatch(resetBoardOnly());
+            } catch (error) {
+              console.error("Error resetting the board:", error);
+            }
+          }}
+          className="bg-gradient-to-br px-4 py-2 rounded text-white from-yellow-400/80 to-orange-400/80 animate-pulse-winner border-yellow-400/50"
+        >
+          Reset Round
+        </button>
+      </div>
     </div>
   );
 }
