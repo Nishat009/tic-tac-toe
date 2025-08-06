@@ -1,16 +1,18 @@
+'use client';
+
 import { useSelector, useDispatch } from 'react-redux';
-import { useRouter } from 'next/navigation';
 import { resetGame } from '@/app/store';
+import { useRouter } from 'next/navigation';
 
 export default function VictoryScreen() {
-  const { players, scores, round } = useSelector((state) => state.game);
+  const { players, scores, roundWins, round } = useSelector((state) => state.game);
   const dispatch = useDispatch();
   const router = useRouter();
 
   const finalWinner =
-    scores.player1 > scores.player2
+    roundWins.player1 >= 3
       ? players.player1
-      : scores.player2 > scores.player1
+      : roundWins.player2 >= 3
       ? players.player2
       : 'Draw';
 
@@ -31,7 +33,10 @@ export default function VictoryScreen() {
         Final Scores: {players.player1}: {scores.player1} | {players.player2}: {scores.player2}
       </p>
       <p className="text-center text-xl font-bold mb-4">
-        {finalWinner === 'Draw' ? 'It\'s a Draw!' : `Winner: ${finalWinner}`}
+        Round Wins: {players.player1}: {roundWins.player1} | {players.player2}: {roundWins.player2}
+      </p>
+      <p className="text-center text-xl font-bold mb-4">
+        {finalWinner === 'Draw' ? 'It\'s a Draw!' : `Final Winner: ${finalWinner}`}
       </p>
       <div className="flex space-x-4 justify-center">
         <button

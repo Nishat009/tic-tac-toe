@@ -1,9 +1,9 @@
 'use client';
 
 import { Provider } from 'react-redux';
-import store from '../store';
 import Navbar from '@/components/Navbar';
 import Game from '@/components/Game';
+import { store } from '../store';
 
 export default function GamePage() {
   return (

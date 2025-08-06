@@ -1,8 +1,8 @@
 'use client';
 import { Provider } from 'react-redux';
-import store from '../store';
 import Navbar from '@/components/Navbar';
 import Leaderboard from '@/components/Leaderboard';
+import { store } from '../store';
 
 export default function LeaderboardPage() {
   return (
